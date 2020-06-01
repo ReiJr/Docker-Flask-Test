@@ -3,6 +3,7 @@ node {
     checkout scm
 
     // Pega o commit id para ser usado de tag (versionamento) na imagem
+    sh "echo Começo"
     sh "git rev-parse --short HEAD > commit-id"
     tag = readFile('commit-id').replace("\n", "").replace("\r", "")
     
