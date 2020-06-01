@@ -5,6 +5,7 @@ node {
     // Pega o commit id para ser usado de tag (versionamento) na imagem
     sh "echo Começo"
     sh "git rev-parse --short HEAD > commit-id"
+    sh "echo commit-id"
     tag = readFile('commit-id').replace("\n", "").replace("\r", "")
     
     // configura o nome da aplicação, o endereço do repositório e o nome da imagem com a versão
