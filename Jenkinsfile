@@ -5,12 +5,12 @@ node {
     // Pega o commit id para ser usado de tag (versionamento) na imagem
     sh "echo Começo"
     sh "git rev-parse --short HEAD > commit-id"
-    sh "cat commit-id"
-    tag = readFile('commit-id').replace("\n", "").replace("\r", "")
+    tag = sh "cat commit-id"
+    
     
     // configura o nome da aplicação, o endereço do repositório e o nome da imagem com a versão
     appName = "app"
-    registryHost = "127.0.0.1:30400/"
+    registryHost = "minikube service registry --url"
     imageName = "${registryHost}${appName}:${tag}"
     
     // Configuramos os estágios
@@ -29,6 +29,6 @@ node {
         input "Deploy to PROD?"
         customImage.push('latest')
         sh "kubectl apply -f https://raw.githubusercontent.com/cirolini/Docker-Flask-uWSGI/master/k8s_app.yaml"
-        sh "kubectl set image deployment app app=${imageName} --record"
-        sh "kubectl rollout status deployment/app"
+        //sh "kubectl set image deployment app app=${imageName} --record"
+        //sh "kubectl rollout status deployment/app"
 }
