@@ -12,7 +12,7 @@ node {
     // configura o nome da aplicação, o endereço do repositório e o nome da imagem com a versão
     appName = 'app'
     def registryHost = sh returnStdout: true, script: 'curl ifconfig.me'
-    host = "${registryHost}:30400"
+    host = "${registryHost}:30400/"
     //registryHost = sh "curl ifconfig.me"
     imageName = "${registryHost}${appName}:${tag}"
     echo "$imageName"
