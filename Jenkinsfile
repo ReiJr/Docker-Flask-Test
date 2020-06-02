@@ -16,7 +16,7 @@ node {
     // Configuramos os estágios
     
     stage "Build"
-        echo ${imageName}
+        echo "${imageName}"
         def customImage = docker.build("${imageName}")
 
     stage "Push"
