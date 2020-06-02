@@ -23,7 +23,7 @@ node {
     stage "Build"
         //echo "${imageName}"
         def dockerfile = 'Dockerfile'
-        def customImage = docker.build("52.90.12.117:30400/app:7cc07b8 .")
+        def customImage = docker.build("52.90.12.117:30400/app:7cc07b8")
 
     stage "Push"
 
