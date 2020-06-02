@@ -16,12 +16,12 @@ node {
     //registryHost = sh "curl ifconfig.me"
     imageName = "${registryHost}${appName}:${tag}"
     echo "$imageName"
-}
-  /*   
+
+   
     // Configuramos os estágios
     
     stage "Build"
-        echo "${imageName}"
+        //echo "${imageName}"
         def customImage = docker.build("${imageName}")
 
     stage "Push"
@@ -37,4 +37,3 @@ node {
         //sh "kubectl set image deployment app app=${imageName} --record"
         //sh "kubectl rollout status deployment/app"
 }
-*/
