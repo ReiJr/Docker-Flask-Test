@@ -22,7 +22,7 @@ node {
     
     stage "Build"
         //echo "${imageName}"
-        def customImage = docker.build("${imageName}", ".")
+        def customImage = docker.build("${imageName}", "--build-arg .")
 
     stage "Push"
 
