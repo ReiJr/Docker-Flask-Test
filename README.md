@@ -2,7 +2,6 @@
 
 Docker container with uWSGI for Flask apps in Python 3
 
-
 ## Description
 This Docker image is a example to create Flask web applications in Python 3 that run with uWSGI.
 
