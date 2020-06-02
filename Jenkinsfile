@@ -5,12 +5,14 @@ node {
     // Pega o commit id para ser usado de tag (versionamento) na imagem
     sh "echo Começo"
     sh "git rev-parse --short HEAD > commit-id"
-    tag = sh "cat commit-id"
+    def tag = sh returnStdout: true, script: 'cat commit-id'
+    
     
     
     // configura o nome da aplicação, o endereço do repositório e o nome da imagem com a versão
-    appName = "app"
-    registryHost = sh "curl ifconfig.me"
+    appName = 'app'
+    def tag = sh returnStdout: true, script: 'curl ifconfig.me'
+    //registryHost = sh "curl ifconfig.me"
     imageName = "${registryHost}${appName}:${tag}"
     
     // Configuramos os estágios
