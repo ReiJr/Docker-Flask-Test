@@ -23,7 +23,7 @@ node {
     stage "Build"
         //echo "${imageName}"
         def dockerfile = 'Dockerfile'
-        def customImage = docker.build("${imageName}", "-f ${dockerfile} ./dockerfiles")
+        def customImage = docker.build("${imageName}", "-f ${dockerfile} .")
 
     stage "Push"
 
