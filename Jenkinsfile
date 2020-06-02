@@ -16,6 +16,7 @@ node {
     //registryHost = sh "curl ifconfig.me"
     imageName = "${registryHost}${appName}:${tag}"
     echo "$imageName"
+}
   /*   
     // Configuramos os estágios
     
