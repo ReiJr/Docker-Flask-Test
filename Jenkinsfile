@@ -27,7 +27,7 @@ node {
 
     stage "Push"
 
-        customImage.push()
+        customImage.push('app')
 
 
     stage "Deploy PROD"
