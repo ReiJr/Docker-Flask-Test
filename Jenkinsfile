@@ -10,7 +10,7 @@ node {
     
     // configura o nome da aplicação, o endereço do repositório e o nome da imagem com a versão
     appName = "app"
-    registryHost = "minikube service registry --url"
+    registryHost = sh "curl ifconfig.me"
     imageName = "${registryHost}${appName}:${tag}"
     
     // Configuramos os estágios
