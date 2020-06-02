@@ -13,11 +13,14 @@ spec:
     app: app
   type: NodePort
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app
 spec:
+  selector:
+    matchLabels:
+      app: app
   replicas: 2
   template:
     metadata:
