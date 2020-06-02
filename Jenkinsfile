@@ -14,7 +14,7 @@ node {
     def registryHost = sh returnStdout: true, script: 'curl ifconfig.me'
     host = "${registryHost}:30400/"
     //registryHost = sh "curl ifconfig.me"
-    imageName = "${registryHost}${appName}:${tag}"
+    imageName = "${host}${appName}:${tag}"
     echo "$imageName"
 
    
