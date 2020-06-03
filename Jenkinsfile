@@ -13,21 +13,15 @@ node {
     appName = 'app'
     def registryHost = sh returnStdout: true, script: 'curl ifconfig.me'
     host = "${registryHost}:30400/"
-    //registryHost = sh "curl ifconfig.me"
-    imageName1 = "${host}${appName}:${tag}"
-    imageName = "3.89.20.116:30400/app:8e392ec"
-    echo "$imageName"
-    echo "$imageName1"
-    imageName2 = imageName1.replaceAll("\\s","")
-    echo "$imageName2"
-
-   
+    url = "${host}${appName}:${tag}"
+    image = url.replaceAll("\\s","")
+       
     // Configuramos os estágios
      
     stage "Build"
         //echo "${imageName}"
         //def dockerfile = 'Dockerfile'
-        def customImage = docker.build("$imageName")
+        def customImage = docker.build("$image")
 
     stage "Push"
 
