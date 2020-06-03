@@ -13,7 +13,6 @@ spec:
   selector:
     app: app
     tier: app
-  #type: NodePort
 
 ---
 apiVersion: apps/v1
