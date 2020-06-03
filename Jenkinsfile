@@ -33,6 +33,6 @@ node {
         input "Deploy to PROD?"
         customImage.push('latest')
         sh "kubectl apply -f https://raw.githubusercontent.com/ReiJr/Docker-Flask-uWSGI/master/k8s_app.yaml"
-        //sh "kubectl set image deployment app app=${imageName} --record"
-        //sh "kubectl rollout status deployment/app"
+        sh "kubectl set image deployment app app=${image} --record"
+        sh "kubectl rollout status deployment/app"
 }
