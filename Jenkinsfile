@@ -18,6 +18,8 @@ node {
     imageName = "3.89.20.116:30400/app:8e392ec"
     echo "$imageName"
     echo "$imageName1"
+    imageName1 = imageNam1.replaceAll("\\s","")
+    echo "$imageName1"
 
    
     // Configuramos os estágios
