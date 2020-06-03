@@ -19,7 +19,7 @@ node {
 
    
     // Configuramos os estágios
-    
+     
     stage "Build"
         //echo "${imageName}"
         //def dockerfile = 'Dockerfile'
