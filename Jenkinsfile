@@ -8,24 +8,21 @@ node {
     def tag = sh returnStdout: true, script: 'cat commit-id'
     
     stage('Build') {
-            steps {
                 def customImage = docker.build("$image")
             }
-        }
     stage('Push') {
-            steps {
+            
                 customImage.push()
+            
             }
-        }
     stage('Deploy') {
-            steps {
                 echo 'Deploying....'
                 input "Deploy to PROD?"
                 customImage.push('latest')
                 sh "kubectl apply -f https://raw.githubusercontent.com/ReiJr/Docker-Flask-uWSGI/master/k8s_app.yaml"
                 sh "kubectl set image deployment app app=${image} --record"
                 sh "kubectl rollout status deployment/app"
-            }
+            
         }
     }
 
