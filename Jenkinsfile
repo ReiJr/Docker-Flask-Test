@@ -21,13 +21,13 @@ node {
     // Configuramos os estágios
     
     stage "Build"
-        //echo "${imageName}"
+        echo "${imageName}"
         def dockerfile = 'Dockerfile'
-        def customImage = docker.build("52.90.12.117:30400/app:7cc07b8")
+        def customImage = docker.build("${imageName}")
 
     stage "Push"
 
-        customImage.push('app')
+        customImage.push()
 
 
     stage "Deploy PROD"
