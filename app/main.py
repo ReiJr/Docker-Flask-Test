@@ -9,7 +9,8 @@ comment = {}
 
 class CommentsList(Resource):
     def get(self):
-        return comment, 200
+        print (comment)
+        return comment
 
 class CommentsAdd(Resource):
 
