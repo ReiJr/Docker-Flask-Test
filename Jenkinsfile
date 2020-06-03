@@ -1,5 +1,5 @@
 
-pipeline {
+node {
     checkout scm
 
     // Pega o commit id para ser usado de tag (versionamento) na imagem
