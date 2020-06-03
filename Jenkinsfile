@@ -7,18 +7,17 @@ node {
     sh "git rev-parse --short HEAD > commit-id"
     def tag = sh returnStdout: true, script: 'cat commit-id'
     
-    stages {
-        stage('Build') {
+    stage('Build') {
             steps {
                 def customImage = docker.build("$image")
             }
         }
-        stage('Push') {
+    stage('Push') {
             steps {
                 customImage.push()
             }
         }
-        stage('Deploy') {
+    stage('Deploy') {
             steps {
                 echo 'Deploying....'
                 input "Deploy to PROD?"
@@ -29,7 +28,7 @@ node {
             }
         }
     }
-}
+
 
 /*
 node {
