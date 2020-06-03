@@ -6,12 +6,15 @@ metadata:
     app: app
 spec:
   ports:
-    - port: 5000
-      #targetPort: 5000
-      #nodePort: 32001
+    #- port: 80
+    - name: http
+      port: 5000
+      #nodePort: 32256
   selector:
     app: app
+    tier: app
   #type: NodePort
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -32,7 +35,7 @@ spec:
           image: "127.0.0.1:30400/app:latest"
           imagePullPolicy: Always
           ports:
-            - name: http
+            - name: app
               containerPort: 5000
 
 
