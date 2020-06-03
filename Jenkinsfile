@@ -14,7 +14,6 @@ node {
     url = "${host}${appName}:${tag}"
     image = url.replaceAll("\\s","")
     
-    
     stage('Build') {
                 def customImage = docker.build("$image")
             }
