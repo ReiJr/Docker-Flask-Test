@@ -9,14 +9,13 @@ comment = {}
 
 class CommentsList(Resource):
     def get(self):
-        print (comment)
         return comment
 
 class CommentsAdd(Resource):
 
     def post(self, user):
         comment[user] = request.form['data']
-
+        print (comment)
         return comment[user]
 
 
