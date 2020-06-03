@@ -8,8 +8,6 @@ node {
     sh "git rev-parse --short HEAD > commit-id"
     def tag = sh returnStdout: true, script: 'cat commit-id'
     
-    
-    
     // configura o nome da aplicação, o endereço do repositório e o nome da imagem com a versão
     appName = 'app'
     def registryHost = sh returnStdout: true, script: 'curl ifconfig.me'
